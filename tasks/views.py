@@ -13,7 +13,7 @@ def task_view(request):
 
 def add_task_view(request):
     # If a `task` GET parameter is present, append and redirect.
-    task = request.GET['task']
+    task = request.GET.get('task', '')
     if task:
         tasks.append(task)
         return HttpResponseRedirect('/task')
@@ -23,6 +23,6 @@ def add_task_view(request):
 
 def delete_task_view(request, index):
     # Delete the task at the given index if it exists
-    if 1 <= index < len(tasks)+1:
+    if 1 <= index <= len(tasks):
         del tasks[index-1]
     return HttpResponseRedirect('/task')

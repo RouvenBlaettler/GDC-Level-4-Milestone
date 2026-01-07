@@ -2,7 +2,7 @@
 
 <h2>Add task:</h2>
 
-<form action="add-task" method="get">
+<form action="/add-task/" method="get">
   <input type="text" name="task" />
   <button type="submit">Add Task</button>
 </form>
@@ -11,7 +11,7 @@
 <h4>Click on a task to delete it</h4>
     <ol>
     {% for t in tasks %}
-        <li><a href = 'delete-task/{{ forloop.counter }}'>{{ t }}</a></li>
+        <li><a href='/delete-task/{{ forloop.counter }}/'>{{ t }}</a></li>
     {% empty %}
         <li>No tasks yet</li>
     {% endfor %}
